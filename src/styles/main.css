@@ -4,43 +4,43 @@
 }
 @font-face {
   font-family: "Overpass-Reguler";
-  src: url("/src/assets/Font/Overpass_Regular.ttf") format("truetype");
+  src: url("/src/assets/Font/overpass_regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Roboto";
-  src: url("/src/assets/Font/Roboto-Black.ttf") format("truetype");
+  src: url("/src/assets/Font/roboto-black.ttf") format("truetype");
 }
 @font-face {
   font-family: "Roboto-Reguler";
-  src: url("/src/assets/Font/Roboto-Regular.ttf") format("truetype");
+  src: url("/src/assets/Font/roboto-regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Gilroy";
-  src: url("/src/assets/Font/Gilroy-Bold.ttf") format("truetype");
+  src: url("/src/assets/Font/gilroy-bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Poppins-Bold";
-  src: url("/src/assets/Font/Poppins-Bold.ttf") format("truetype");
+  src: url("/src/assets/Font/poppins-bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Poppins-Light";
-  src: url("/src/assets/Font/Poppins-Light.ttf") format("truetype");
+  src: url("/src/assets/Font/poppins-light.ttf") format("truetype");
 }
 @font-face {
   font-family: "Poppins-Reguler";
-  src: url("/src/assets/Font/Poppins-Regular.ttf") format("truetype");
+  src: url("/src/assets/Font/poppins-regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Poppins-Medium";
-  src: url("/src/assets/Font/Poppins-Medium.ttf") format("truetype");
+  src: url("/src/assets/Font/poppins-medium.ttf") format("truetype");
 }
 @font-face {
   font-family: "Poppins-Semibold";
-  src: url("/src/assets/Font/Poppins-SemiBold.ttf") format("truetype");
+  src: url("/src/assets/Font/poppins-semibold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Nasalization";
-  src: url("/src/assets/Font/Nasalization\ Rg.otf") format("truetype");
+  src: url("/src/assets/Font/nasalization-rg.otf") format("truetype");
 }
 
 :root {

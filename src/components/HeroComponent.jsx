@@ -1,5 +1,7 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
+import welcometext from '../assets/Home/welcome.png'
+import logo3d from '../assets/Home/logo 3D.png'
 import bgHeroVideo from '../assets/Home/herobackground_compressedsmall.mp4';
 import { FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
 import { GrFacebookOption } from "react-icons/gr";
@@ -51,7 +53,7 @@ const HeroComponent = () => {
         <Container>
           <Row className='header-box d-flex flex-lg-row flex-column align-items-center'>
             <Col lg="6">
-              <img src="src/assets/Home/welcome.png" alt="#WELCOME" className='welcome' />
+              <img src={welcometext} alt="#WELCOME" className='welcome' />
               <div className='social-icons'>
                 {socialLinks.map((link, idx) => (
                   <a
@@ -68,7 +70,7 @@ const HeroComponent = () => {
               </div>
             </Col>
             <Col lg="6" className="pt-lg-0 pt-5 d-flex justify-content-center">
-              <img src="src/assets/Home/logo 3D.png" alt="LOGOHOK" className='logo3d float-animation' />
+              <img src={logo3d} alt="LOGOHOK" className='logo3d float-animation' />
             </Col>
           </Row>
         </Container>
