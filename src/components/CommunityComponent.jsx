@@ -1,11 +1,11 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { useEffect, useState, useRef } from "react";
-import communityImage from "../assets/About Us/foto.png";
-import communityLogo from "../assets/About Us/logo.png";
-import aboutUsCard from "../assets/About us/about us.png";
-import statCard1 from "../assets/About us/kiri 2.png";
-import statCard2 from "../assets/About us/tengah 2.png";
-import statCard3 from "../assets/About us/info kanan.png";
+import communityImage from "../assets/aboutus/foto.png";
+import communityLogo from "../assets/aboutus/logo.png";
+import aboutUsCard from "../assets/aboutus/about us.png";
+import statCard1 from "../assets/aboutus/kiri 2.png";
+import statCard2 from "../assets/aboutus/tengah 2.png";
+import statCard3 from "../assets/aboutus/info kanan.png";
 
 function CommunityComponent() {
   const [memberCount, setMemberCount] = useState(0);
