@@ -48,10 +48,21 @@ function RedeemPage() {
     try {
       // Gunakan environment variable untuk API URL
       const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000"
-      const response = await axios.post(`${API_URL}/api/pin/redeem`, {
+      // Pastikan API_URL tidak memiliki trailing slash
+      const baseUrl = API_URL.endsWith('/') ? API_URL.slice(0, -1) : API_URL;
+      
+      const response = await axios.post(`${baseUrl}/api/pin/redeem`, {
         pinCode,
         idGame,
         nama,
+      }, {
+        // Tambahkan header CORS
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        // Aktifkan withCredentials untuk mengirim cookies
+        withCredentials: true
       })
 
       if (response.data.message === "Redeem berhasil") {

@@ -25,10 +25,12 @@ function AdminLoginPage() {
 
     setLoading(true);
     try {
-      console.log("Attempting login to:", `${API_URL}/api/auth/login`);
+      // Pastikan API_URL tidak memiliki trailing slash
+      const baseUrl = API_URL.endsWith("/") ? API_URL.slice(0, -1) : API_URL;
+      console.log("Attempting login to:", `${baseUrl}/api/auth/login`);
 
       const response = await axios.post(
-        `${API_URL}/api/auth/login`,
+        `${baseUrl}/api/auth/login`,
         {
           username,
           password,
@@ -37,10 +39,10 @@ function AdminLoginPage() {
           headers: {
             "Content-Type": "application/json",
           },
-          withCredentials: false,
+          // Aktifkan withCredentials untuk mengirim cookies
+          withCredentials: true,
         }
       );
-
       console.log("Login response:", response.data);
 
       sessionStorage.setItem("adminToken", response.data.token);
