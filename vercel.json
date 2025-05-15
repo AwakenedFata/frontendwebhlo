@@ -1,7 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ],
   "version": 2,
   "builds": [
     {
@@ -11,6 +8,7 @@
   ],
   "routes": [
     {
+      "src": "/(.*)",
       "dest": "/api/index.js",
       "headers": {
         "Access-Control-Allow-Origin": "*",
