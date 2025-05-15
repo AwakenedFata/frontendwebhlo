@@ -5,7 +5,7 @@ import { Card, Table, Form, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { FaSearch, FaFileDownload } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import "../../styles/adminstyles.css";
+import '../../styles/adminstyles.css'
 
 function RedemptionHistory() {
   const [redemptions, setRedemptions] = useState([]);
@@ -24,8 +24,6 @@ function RedemptionHistory() {
     setError("");
     try {
       const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-      // Pastikan API_URL tidak memiliki trailing slash
-      const baseUrl = API_URL.endsWith("/") ? API_URL.slice(0, -1) : API_URL;
       const token = sessionStorage.getItem("adminToken");
 
       if (!token) {
@@ -33,13 +31,10 @@ function RedemptionHistory() {
         return;
       }
 
-      const response = await axios.get(`${baseUrl}/api/admin/redemptions`, {
+      const response = await axios.get(`${API_URL}/api/admin/redemptions`, {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-          Accept: "application/json",
         },
-        withCredentials: true,
       });
 
       setRedemptions(response.data.redemptions);

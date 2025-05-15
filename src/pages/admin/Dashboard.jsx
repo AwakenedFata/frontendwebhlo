@@ -13,7 +13,7 @@ import {
 } from "chart.js";
 import { Pie, Bar } from "react-chartjs-2";
 import { useNavigate } from "react-router-dom";
-import "../../styles/adminstyles.css";
+import '../../styles/adminstyles.css'
 
 // Register ChartJS components
 ChartJS.register(
@@ -42,8 +42,6 @@ function Dashboard() {
     setError("");
     try {
       const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-      // Pastikan API_URL tidak memiliki trailing slash
-      const baseUrl = API_URL.endsWith("/") ? API_URL.slice(0, -1) : API_URL;
       const token = sessionStorage.getItem("adminToken");
 
       if (!token) {
@@ -51,13 +49,10 @@ function Dashboard() {
         return;
       }
 
-      const response = await axios.get(`${baseUrl}/api/admin/stats`, {
+      const response = await axios.get(`${API_URL}/api/admin/stats`, {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-          Accept: "application/json",
         },
-        withCredentials: true,
       });
 
       setStats(response.data);
@@ -71,7 +66,7 @@ function Dashboard() {
     } finally {
       setLoading(false);
     }
-  }, [navigate]);
+  }, [navigate]); 
 
   useEffect(() => {
     fetchStats();
@@ -85,7 +80,7 @@ function Dashboard() {
     background: "#16213e",
     text: "#ffffff",
     grid: "rgba(255, 255, 255, 0.43)",
-  };
+  }
 
   // Common chart options
   const commonOptions = {
@@ -121,7 +116,7 @@ function Dashboard() {
         boxPadding: 5,
       },
     },
-  };
+  }
 
   // Data untuk pie chart
   const pieData = {
@@ -135,7 +130,7 @@ function Dashboard() {
         borderWidth: 2,
       },
     ],
-  };
+  }
 
   // Options for pie chart
   const pieChartOptions = {
@@ -153,7 +148,7 @@ function Dashboard() {
       },
     },
     maintainAspectRatio: false,
-  };
+  }
 
   // Data untuk bar chart
   const barData = {
@@ -163,10 +158,10 @@ function Dashboard() {
         label: "Jumlah PIN",
         data: stats.batches.map((batch) => batch.count),
         backgroundColor: (context) => {
-          const index = context.dataIndex;
-          const value = context.dataset.data[index];
-          const alpha = 0.7 + (value / Math.max(...context.dataset.data)) * 0.3;
-          return `rgba(108, 99, 255, ${alpha})`;
+          const index = context.dataIndex
+          const value = context.dataset.data[index]
+          const alpha = 0.7 + (value / Math.max(...context.dataset.data)) * 0.3
+          return `rgba(108, 99, 255, ${alpha})`
         },
         borderColor: chartColors.primary[1],
         borderWidth: 1,
@@ -174,7 +169,7 @@ function Dashboard() {
         hoverBackgroundColor: chartColors.primary[1],
       },
     ],
-  };
+  }
 
   // Options for bar chart
   const barOptions = {
@@ -227,9 +222,9 @@ function Dashboard() {
           },
           callback: (value) => {
             if (value % 1 === 0) {
-              return value;
+              return value
             }
-            return null;
+            return null
           },
         },
         beginAtZero: true,
@@ -239,7 +234,7 @@ function Dashboard() {
       duration: 2000,
       easing: "easeOutQuart",
     },
-  };
+  }
 
   return (
     <div className="adminpaneldashboardpage">
