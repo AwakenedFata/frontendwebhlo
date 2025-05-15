@@ -63,6 +63,8 @@ function PinManagement() {
     setError("");
     try {
       const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      // Pastikan API_URL tidak memiliki trailing slash
+      const baseUrl = API_URL.endsWith("/") ? API_URL.slice(0, -1) : API_URL;
       const token = sessionStorage.getItem("adminToken");
 
       if (!token) {
@@ -70,10 +72,13 @@ function PinManagement() {
         return;
       }
 
-      const response = await axios.get(`${API_URL}/api/admin/pins`, {
+      const response = await axios.get(`${baseUrl}/api/admin/pins`, {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
+        withCredentials: true,
       });
 
       setPins(response.data.pins);
